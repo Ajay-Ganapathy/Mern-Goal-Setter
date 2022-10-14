@@ -11,7 +11,7 @@ const Header = () => {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    navigate("/")
+    navigate("/login")
   }
   return (
     <header className = "header"> 
@@ -32,9 +32,12 @@ const Header = () => {
         </li>
 
         <li>
-          <Link to = "/register">
+          {
+            !user && <Link to = "/register">
             <FaUser /> Register
           </Link>
+          }
+          
         </li>
       </ul>
 
